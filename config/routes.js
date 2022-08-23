@@ -27,9 +27,6 @@ router.get("/confirmation", (req, res) => {
 router.get("/cart", (req, res) => {
     res.render("cart/cart")
 })
-router.get("/payment", (req, res) => {
-    res.render("payment/payment")
-})
 router.get("/profile", (req, res) => {
     res.render("profile/profile")
 })

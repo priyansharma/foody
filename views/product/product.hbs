@@ -1,31 +1,75 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-</head>
-<body>
-    <div class="CommonBackground">
-        <span class="logoutButton" onclick="logoutHandler()">Logout</span>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-12 mx-auto">
-                    <h1 class="display-4 text-center mt-5"> Add your notes and tasks </h1>
-                    <div class="addTaskInput">
-                        <form method="post" action="/create"> 
-                            <input type="text" placeholder="Write here" name="task" />
-                            <button type="submit" onclick="getUserData()"><img src="images/plus.png" /></button>
-                        </form>
-                    </div>
-                    <div class="tasksSection"></div>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <section class="md:w-2/4 w-full mx-auto">
+      <h1 class="text-2xl font-bold text-center mt-5 md:mb-0 mb-5">Add to cart
+        your favorite one</h1>
+      <div class="flex justify-around flex-wrap">
+        <div
+          class="w-80 bg-white shadow-lg rounded-2xl overflow-hidden border border-solid border-[#bbb] md:m-8 mb-8"
+        >
+          <img src="/images/pizaa.jpg" class="w-full" />
+          <div class="flex justify-between items-center">
+            <div class="mb-4 px-2">
+              <p class="text-2xl font-extrabold mt-2">Rs. 249/-</p>
+              <p class="text-xl font-medium -mt-1">Sweet Corn Pizza</p>
             </div>
+            <div class="mr-2">
+              <a
+                href="/cart"
+                class="bg-black text-white rounded-full px-3 py-1 text-sm"
+              >Add To Cart</a>
+            </div>
+          </div>
         </div>
-    </div>
-    <script src="/js/common.js"></script>
-</body>
+
+        <div
+          class="w-80 bg-white shadow-lg rounded-2xl overflow-hidden border border-solid border-[#bbb] md:m-8 mb-8"
+        >
+          <img src="/images/pizaa.jpg" class="w-full" />
+          <div class="flex justify-between items-center">
+            <div class="mb-4 px-2">
+              <p class="text-2xl font-extrabold mt-2">Rs. 249/-</p>
+              <p class="text-xl font-medium -mt-1">Sweet Corn Pizza</p>
+            </div>
+            <div class="mr-2">
+              <a
+                href="/cart"
+                class="bg-black text-white rounded-full px-3 py-1 text-sm"
+              >Add To Cart</a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-80 bg-white shadow-lg rounded-2xl overflow-hidden border border-solid border-[#bbb]"
+        >
+          <img src="/images/pizaa.jpg" class="w-full" />
+          <div class="flex justify-between items-center">
+            <div class="mb-4 px-2">
+              <p class="text-2xl font-extrabold mt-2">Rs. 249/-</p>
+              <p class="text-xl font-medium -mt-1">Sweet Corn Pizza</p>
+            </div>
+            <div class="mr-2">
+              <a
+                href="/cart"
+                class="bg-black text-white rounded-full px-3 py-1 text-sm"
+              >Add To Cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

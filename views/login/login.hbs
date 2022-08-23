@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <title>Login page</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <h1>Hello world</h1>
+    <section class="bg-[#ef4f5f] h-screen flex items-center">
+        <div class="md:w-2/4 rounded-md my-0 mx-auto bg-white md:p-9 p-5">
+            <div class="text-center mb-6">
+                <h4 class="font-semibold text-[#ef4f5f] text-4xl"><i class='fas fa-hamburger text-[#ef4f5f] text-4xl'></i> Foody</h4>
+            </div>
+            <form class="md:w-3/4 my-0 mx-auto">
+                <label class="block">Email</label>
+                <input type="email" placeholder="Enter email here" class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"/>
+                <label class="block">Password</label>
+                <input type="password" placeholder="Enter password here" class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded"/>
+                <div class="text-center">
+                    <button class="bg-[#ef4f5f] text-white px-6 py-2 font-bold rounded my-6">Login</button> <br/>
+                    <a href="/signup" class="text-center underline opacity-50">Create New Account</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </body>
 </html>
