@@ -1,8 +1,15 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
-mongoose.connect(process.env.DB_URI_CONNECTION, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+const mySql = require("mysql")
+
+const mySqlConfig = mySql.createConnection({
+    host: "localhost",
+    user: 'root',
+    password: 'Foody@1234',
 })
-    .then(() => console.log("Database connection succesful"))
-    .catch((err) => console.log("database not connected", err));
+
+mySqlConfig.connect((err) => {
+    if(err){
+        console.log("Connection faild", err)
+    }else{
+        console.log("Application is connected")
+    }
+})

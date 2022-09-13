@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .swiper-slide {
   display: flex;
   flex-direction: column;
