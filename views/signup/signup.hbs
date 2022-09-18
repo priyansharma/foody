@@ -6,6 +6,7 @@
     <title>Create account</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/common.js" defer></script>
   </head>
   <body>
     <section class="bg-[#ef4f5f] min-h-screen flex items-center">
@@ -22,7 +23,8 @@
               <input
                 type="text"
                 class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"
-                name="firstname"
+                id="signup-Fname"
+                name="First Name"
                 placeholder="Enter first name"
               />
             </div>
@@ -31,8 +33,9 @@
               <input
                 type="text"
                 class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"
+                id="signup-Lname"
                 placeholder="Enter last name"
-                name="lastname"
+                name="Last Name"
               />
             </div>
 
@@ -41,8 +44,9 @@
               <input
                 type="text"
                 class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"
+                id="signup-email"
                 placeholder="Enter email ID"
-                name="email"
+                name="Email ID"
               />
             </div>
             <div class="lg:w-2/4 w-full px-2">
@@ -50,8 +54,9 @@
               <input
                 type="text"
                 class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"
+                id="signup-phone"
                 placeholder="Enter phone number"
-                name="phonenumber"
+                name="Phone Number"
               />
             </div>
 
@@ -60,8 +65,9 @@
               <input
                 type="password"
                 class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"
+                id="signup-password"
                 placeholder="********"
-                name="password"
+                name="Password"
               />
             </div>
             <div class="lg:w-2/4 w-full px-2">
@@ -69,17 +75,19 @@
               <input
                 type="password"
                 class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"
+                id="signup-Cpassword"
                 placeholder="********"
-                name="confirmpassword"
+                name="Confirm Password"
               />
             </div>
 
-            <div class="text-center w-full">
-              <button
-                class="bg-[#ef4f5f] text-white px-6 py-2 font-bold rounded mt-6"
+            <div class="text-center w-full mt-5">
+              <a
+                class="bg-[#ef4f5f] text-white px-6 py-2 font-bold rounded cursor-pointer"
+                onclick="formValidation('signup')"
               >
                 Create account
-              </button>
+              </a>
             </div>
           </div>
         </form>

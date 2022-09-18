@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"crossorigin="anonymous"></script>
+    <script src="/js/common.js" defer></script>
 </head>
 <body>
     <section class="bg-[#ef4f5f] h-screen flex items-center">
@@ -17,12 +18,14 @@
             </div>
             <form class="md:w-3/4 my-0 mx-auto">
                 <label class="block">Email</label>
-                <input type="email" placeholder="Enter email here" class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4"/>
+                <input type="email" name="Email" placeholder="Enter email here" class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded mb-4" id="login-Email"/>
+
                 <label class="block">Password</label>
-                <input type="password" placeholder="Enter password here" class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded"/>
-                <div class="text-center">
-                    <button class="bg-[#ef4f5f] text-white px-6 py-2 font-bold rounded my-6">Login</button> <br/>
-                    <a href="/signup" class="text-center underline opacity-50">Create New Account</a>
+                <input type="password" name="Password" placeholder="Enter password here" class="border-2 border-[#ef4f5f] py-2 px-2 w-full rounded" id="login-Password"/>
+
+                <div class="text-center lg:mt-8">
+                    <a class="bg-[#ef4f5f] text-white px-6 py-2 font-bold rounded my-6 cursor-pointer" onclick="formValidation('login')">Login</a> <br/>
+                    <a href="/signup" class="text-center underline opacity-50 pt-5 block">Create New Account</a>
                 </div>
             </form>
         </div>

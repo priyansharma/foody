@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script defer src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
     <header class="py-4 px-4 md:px-10 shadow-md bg-[#ef4f5f]">
@@ -17,7 +17,7 @@
                 <h4 class="font-semibold text-white text-4xl"><i class='fas fa-hamburger text-white text-4xl'></i> Foody</h4>
             </div>
             <div>
-               <a href="/login"><i class="fas fa-user-astronaut text-4xl cursor-pointer text-white"></i></a>
+               <a href="/login" id="profileLink"><i class="fas fa-user-astronaut text-4xl cursor-pointer text-white"></i> <span class="text-white text-lg"><b id="UserName"></b></span> </a>
             </div>
         </nav>
     </header>
@@ -74,6 +74,15 @@
             prevEl: ".swiper-button-prev",
         },
       });
+
+      window.addEventListener('load', () => {
+        let userValue = localStorage.getItem('islogin')
+        if(userValue){
+          userValue = JSON.parse(userValue)
+          document.getElementById("UserName").innerHTML = `Hi, ${userValue.name}`
+          document.getElementById("profileLink").setAttribute("href", "/profile")
+        }
+      })
     </script>
 </body> 
 </html>
