@@ -5,12 +5,19 @@ const createAccount = async (req, res) => {
     const QUERY = `INSERT INTO users (userID, firstName, lastName, email, mobileNumber, userPassword) VALUES ( "${userID}", "${firstName}", "${lastName}", "${email}", "${mobileNumber}", "${userPassword}")`;
     await MYSQL.query(QUERY, (err, result) => {
       if (err) {
-        res.sendStatus(400).send("Error in create Account");
+        return res.status(500).json({
+          message: "Sorry, Something went wrong",
+          code: "1"
+        });
       }
       res.sendStatus(200);
     });
   } catch (err) {
     console.log("From create-account controller", err);
+    return res.status(500).json({
+      message: "Sorry, Something went wrong",
+      code: "1",
+    });
   }
 };
 

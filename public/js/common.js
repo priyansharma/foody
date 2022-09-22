@@ -1,4 +1,5 @@
 const BASE_URL = "http://localhost:5000";
+
 const formValidation = (formType) => {
   let elements = document.querySelectorAll("input");
   for (let i = 0; i <= elements.length; i++) {
@@ -73,3 +74,25 @@ const loginHandler = async () => {
     console.log("Login Error", error);
   }
 };
+
+const logoutHandler = () =>{
+  localStorage.clear();
+  window.location.href = "/"
+}
+
+window.addEventListener('load', async () => {
+  const getQueryString = new URLSearchParams(window.location.search);
+  const getUserId = getQueryString.get("user")
+  if(getUserId){
+    const getJSON = await fetch(`${BASE_URL}/getprofile?userID=${getUserId}`);
+    const getData = await getJSON.json();
+    if(getData.code == 1 || getData.length <= 0){
+      document.getElementById('userName').innerHTML = `${getData.message}`;
+    }else{
+      document.getElementById('userName').innerHTML = `${getData[0].firstName} ${getData[0].lastName}`
+      document.getElementById('userEmail').innerHTML = `Email- ${getData[0].email}`
+      document.getElementById('userPhone').innerHTML = `Phone- ${getData[0].mobileNumber}`
+
+    }
+  }
+})

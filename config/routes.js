@@ -1,8 +1,10 @@
 const express = require("express")
 const router = new express.Router()
 const bodyParser = require('body-parser')
-const createAccount = require("../controllers/create-account")
+const createAccountController = require("../controllers/create-account")
 const loginController = require("../controllers/login")
+const getProductsController = require("../controllers/getProducts")
+const getProfileController = require("../controllers/getProfileDetail")
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get("/", (req, res) => {
@@ -26,11 +28,14 @@ router.get("/cart", (req, res) => {
 router.get("/profile", (req, res) => {
     res.render("profile/profile")
 })
+
+router.get("/getproducts", urlencodedParser, getProductsController)
+router.get("/getprofile", urlencodedParser, getProfileController)
+router.post("/create-account", urlencodedParser, createAccountController)
+router.post("/login", urlencodedParser, loginController)
+
 router.get("*", (req, res) => {
     res.render("404/404")
 })
-
-router.post("/create-account", urlencodedParser, createAccount)
-router.post("/login", urlencodedParser, loginController)
 
 module.exports = router

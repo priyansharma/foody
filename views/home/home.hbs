@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="/js/common.js" defer></script>
 </head>
 <body>
     <header class="py-4 px-4 md:px-10 shadow-md bg-[#ef4f5f]">
@@ -80,7 +81,7 @@
         if(userValue){
           userValue = JSON.parse(userValue)
           document.getElementById("UserName").innerHTML = `Hi, ${userValue.name}`
-          document.getElementById("profileLink").setAttribute("href", "/profile")
+          document.getElementById("profileLink").setAttribute("href", `/profile?user=${userValue.userID}`)
         }
       })
     </script>

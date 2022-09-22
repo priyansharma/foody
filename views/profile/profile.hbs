@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your profile</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-        <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="/js/common.js" defer></script>
   </head>
   <body>
     <section>
       <div class="bg-[#ef4f5f] p-8">
+        <div>
+          <p class="text-right text-white font-semibold underline cursor-pointer" onclick="logoutHandler()">
+             Logout <i class="fas fa-sign-out-alt"></i>
+          </p>
+        </div>
         <div
           class="lg:w-3/4 w-full flex justify-between lg:flex-row md:flex-row flex-col mx-auto"
         >
@@ -22,9 +28,9 @@
           <div
             class="flex-1 flex md:items-baseline md:justify-center items-center md:mt-0 mt-2 flex-col"
           >
-            <p class="text-white md:text-4xl text-3xl font-semibold">Priyansh
-              Sharma</p>
-            <p class="text-white text-xl">priyansh@gmail.com</p>
+            <p class="text-white md:text-4xl text-3xl font-bold mb-2" id="userName">Loading...</p>
+            <p class="text-white text-lg font-semibold" id="userEmail"></p>
+            <p class="text-white text-lg font-semibold" id="userPhone"></p>
           </div>
         </div>
       </div>
