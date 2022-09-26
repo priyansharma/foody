@@ -7,7 +7,8 @@ window.addEventListener("load", () => {
           <img src=${value.image} class="w-full" />
           <div class="flex justify-between items-center">
               <div class="mb-4 px-2">
-                  <p class="text-sm font-semibold flex justify-between mt-1"> <span class="text-zinc-500 line-through"> &#8377; ${value.orgPrice}/- </span> </p>
+                  <p class="text-sm font-semibold flex justify-between mt-1"> <span class="text-zinc-500 line-through"> 
+                  &#8377; ${value.orgPrice}/- </span> </p>
                   <p class="text-lg font-extrabold">&#8377; ${value.price}/-</p>
                   <p class="text-md font-medium">${value.title}</p>
               </div>
