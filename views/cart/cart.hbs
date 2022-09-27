@@ -22,7 +22,7 @@
             <div id="priceList"></div>
               <p class="flex justify-between bg-black text-white px-2">
                 <span class="text-lg">Grand Total</span>
-                <span class="text-lg font-bold" id="grandTotal"></span>
+                <span class="text-lg font-bold">&#8377; <span id="grandTotal"></span>/-</span>
               </p>
           </div>
         </div>
@@ -60,6 +60,7 @@
                   placeholder="Enter your number here"
                   name="contect number"
                   maxlength="10"
+                  id="paymenr_number"
                 />
               </div>
               <div class="lg:w-2/4 w-full px-2">
@@ -70,6 +71,7 @@
                   placeholder="Enter your address here"
                   name="address"
                   maxlength="50"
+                  id="payment_Address"
                 />
               </div>
             </div>
@@ -114,13 +116,12 @@
                 />
               </div>
               <div class="text-center w-full mt-5">
-                <a
-                  href="javascript:void(0)"
+                <button
                   class="bg-[#ef4f5f] text-white px-6 py-2 font-bold rounded mt-6"
-                  onclick="formValidation('payment')"
+                  onclick="formValidation('payment', this)"
                 >
                   Make Payment
-                </a>
+                </button>
               </div>
             </div>
           </form>

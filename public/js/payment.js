@@ -25,7 +25,7 @@ window.addEventListener("load", () => {
   let grandTotal = pricesList.reduce((acc, curr) => {
     return parseInt(acc) + parseInt(curr)
   })
-  document.getElementById("grandTotal").innerHTML = `&#8377; ${grandTotal}/-`
+  document.getElementById("grandTotal").innerHTML = `${grandTotal}`
   bindHTML(getHTMLcartItem, "cartItem");
   bindHTML(getHTMLpriceList, "priceList");
 });

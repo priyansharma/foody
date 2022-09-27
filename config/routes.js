@@ -5,6 +5,7 @@ const createAccountController = require("../controllers/create-account")
 const loginController = require("../controllers/login")
 const getProductsController = require("../controllers/getProducts")
 const getProfileController = require("../controllers/getProfileDetail")
+const paymentController = require("../controllers/payment")
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get("/", (req, res) => {
@@ -33,8 +34,9 @@ router.get("/getproducts", urlencodedParser, getProductsController)
 router.get("/getprofile", urlencodedParser, getProfileController)
 router.post("/create-account", urlencodedParser, createAccountController)
 router.post("/login", urlencodedParser, loginController)
+router.post("/payment", urlencodedParser, paymentController)
 
-router.get("*", (req, res) => {
+router.get("*", (req, res) => { 
     res.render("404/404")
 })
 

@@ -5,16 +5,17 @@ const CART_ITEMS = [];
 window.addEventListener("load", async () => {
   bindUserProfile();
   bindProducts();
+  confirmationHandler();
 });
 
-const formValidation = (formType) => {
+const formValidation = (formType, event) => {
   let elements = document.querySelectorAll("input");
   for (let i = 0; i <= elements.length; i++) {
     if (i === elements.length) {
       if (formType === "signup") {
         createAccountHandler();
       } else if(formType === "payment"){
-        paymentHandler();
+        paymentHandler(event);
       } else {
         loginHandler();
       }
@@ -84,8 +85,46 @@ const loginHandler = async () => {
   }
 };
 
-const paymentHandler = () => {
-  alert("payment Hit")
+const paymentHandler = async (event) => {
+  event.setAttribute("disabled", "true");
+  event.innerHTML = "Loading...";
+  event.style.backgroundColor = "#bbb";
+  let randomNumber = Math.floor(100000 + Math.random() * 900000);
+  let userID = localStorage.getItem("islogin");
+  userID = JSON.parse(userID);
+  let productID = sessionStorage.getItem("item");
+  productID = JSON.parse(productID);
+  let itemsID = productID.map(item => {
+    return item.id
+  })
+  const PAYMENT_REQUEST = {
+    "orderID": randomNumber,
+    "userID": userID?.userID,
+    "productID": itemsID.join(),
+    "categoryID": itemsID[0].substring(0,2),
+    "payableAmount": parseInt(document.getElementById('grandTotal').innerText),
+    "additionalCharges": 0,
+    "deliveryAddress": document.getElementById("payment_Address").value,
+    "contactNumber": document.getElementById("paymenr_number").value,
+    "modeOfPay": "COD",
+    "addintionlItems": ""
+  }
+  const getJSON = await fetch(`${BASE_URL}/payment`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(PAYMENT_REQUEST)
+  })
+  const getData = await getJSON.json();
+  if(getData.code != 0){
+    alert("Somerthing went wrong, Please try again")
+    event.setAttribute("disabled", "false");
+    event.innerHTML = "Make Payment";
+    event.style.backgroundColor = "#ef4f5f";
+  }else{
+    window.location.href = `/confirmation?orderId=${getData.orderID}`;
+  }
 }
 
 const logoutHandler = () => {
@@ -131,8 +170,12 @@ const cartHandler = (event, id, price, orgPrice, title, image) => {
 };
 
 const validateCart = (element) => {
+  const isLoggdin = localStorage.getItem("islogin")
   if (element.children[1].innerHTML == 0) {
     alert("Please add at-least one item to cart");
+    return;
+  }else if(!isLoggdin){
+    alert("Please login your account");
     return;
   }
   element.setAttribute("href", "/cart");
@@ -171,3 +214,11 @@ const bindProducts = async () => {
     }
   }
 };
+
+const confirmationHandler = () => {
+  const GET_ORDERID = getQueryString.get("orderId");
+  if(GET_ORDERID){
+    document.getElementById("orderID").innerHTML = GET_ORDERID;
+    sessionStorage.clear()
+  }
+}
